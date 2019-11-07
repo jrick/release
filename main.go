@@ -28,19 +28,19 @@ var (
 )
 
 var targets = []struct{ os, arch string }{
-	{"darwin", "amd64"},
-	{"freebsd", "amd64"},
-	{"linux", "386"},
+	//{"darwin", "amd64"},
+	//{"freebsd", "amd64"},
+	//{"linux", "386"},
 	{"linux", "amd64"},
-	{"linux", "arm64"},
-	{"openbsd", "amd64"},
-	{"windows", "386"},
-	{"windows", "amd64"},
+	//{"linux", "arm64"},
+	//{"openbsd", "amd64"},
+	//{"windows", "386"},
+	//{"windows", "amd64"},
 }
 
 const relver = "v1.5.0-rc1"
 
-const ldflags = `-buildid= ` +
+const ldflags =
 	`-X github.com/decred/dcrd/internal/version.BuildMetadata=release ` +
 	`-X github.com/decred/dcrd/internal/version.PreRelease=rc1 ` +
 	`-X github.com/decred/dcrwallet/version.BuildMetadata=release ` +
