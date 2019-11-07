@@ -28,14 +28,14 @@ var (
 )
 
 var targets = []struct{ os, arch string }{
-	{"darwin", "amd64"},
-	{"freebsd", "amd64"},
-	{"linux", "386"},
+	//{"darwin", "amd64"},
+	//{"freebsd", "amd64"},
+	//{"linux", "386"},
 	{"linux", "amd64"},
-	{"linux", "arm64"},
-	{"openbsd", "amd64"},
-	{"windows", "386"},
-	{"windows", "amd64"},
+	//{"linux", "arm64"},
+	//{"openbsd", "amd64"},
+	//{"windows", "386"},
+	//{"windows", "amd64"},
 }
 
 const relver = "v1.5.0-rc1"
@@ -52,10 +52,10 @@ const tags = "safe,netgo"
 
 var tools = []struct{ tool, builddir string }{
 	{"decred.org/dcrwallet", "./dcrwallet"},
-	{"github.com/decred/dcrd", "./dcrd"},
-	{"github.com/decred/dcrd/cmd/dcrctl", "./dcrd"},
 	{"github.com/decred/dcrd/cmd/promptsecret", "./dcrd"},
-	{"github.com/decred/dcrlnd/cmd/dcrlnd", "./dcrlnd"},
+	//{"github.com/decred/dcrd", "./dcrd"},
+	//{"github.com/decred/dcrd/cmd/dcrctl", "./dcrd"},
+	//{"github.com/decred/dcrlnd/cmd/dcrlnd", "./dcrlnd"},
 }
 
 type manifestLine struct {
