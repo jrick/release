@@ -40,24 +40,25 @@ var targets = []struct{ os, arch string }{
 	{"windows", "amd64"},
 }
 
-const relver = "v1.5.2"
+const relver = "v1.6.0-rc1"
 
 const ldflags = `-buildid= ` +
 	`-X github.com/decred/dcrd/internal/version.BuildMetadata=release ` +
-	`-X github.com/decred/dcrd/internal/version.PreRelease= ` +
+	`-X github.com/decred/dcrd/internal/version.PreRelease=rc1 ` +
 	`-X github.com/decred/dcrwallet/version.BuildMetadata=release ` +
-	`-X github.com/decred/dcrwallet/version.PreRelease= ` +
+	`-X github.com/decred/dcrwallet/version.PreRelease=rc1 ` +
 	`-X github.com/decred/dcrlnd/build.BuildMetadata=release ` +
-	`-X github.com/decred/dcrlnd/build.PreRelease= ` +
+	`-X github.com/decred/dcrlnd/build.PreRelease=rc1 ` +
 	`-X github.com/decred/politeia/util/version.BuildMetadata=release ` +
-	`-X github.com/decred/politeia/util/version.PreRelease=`
+	`-X github.com/decred/politeia/util/version.PreRelease=rc1`
 
 const tags = "safe,netgo"
 
 var tools = []struct{ tool, builddir string }{
+	{"decred.org/dcrctl", "./dcrctl"},
 	{"decred.org/dcrwallet", "./dcrwallet"},
 	{"github.com/decred/dcrd", "./dcrd"},
-	{"github.com/decred/dcrd/cmd/dcrctl", "./dcrd"},
+	{"github.com/decred/dcrd/cmd/gencerts", "./dcrd"},
 	{"github.com/decred/dcrd/cmd/promptsecret", "./dcrd"},
 	{"github.com/decred/dcrlnd/cmd/dcrlnd", "./dcrlnd"},
 	{"github.com/decred/dcrlnd/cmd/dcrlncli", "./dcrlnd"},
@@ -161,6 +162,7 @@ func readasset(builddir string, goargs []string) []byte {
 	cmd.Dir = builddir
 	output, err := cmd.Output()
 	if err != nil {
+		log.Printf("failed to readasset: dir=%v goargs=%v", builddir, goargs)
 		log.Fatal(err)
 	}
 	return output
