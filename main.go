@@ -50,7 +50,9 @@ const ldflags = `-buildid= ` +
 	`-X github.com/decred/dcrlnd/build.BuildMetadata=release ` +
 	`-X github.com/decred/dcrlnd/build.PreRelease=rc1 ` +
 	`-X github.com/decred/politeia/util/version.BuildMetadata=release ` +
-	`-X github.com/decred/politeia/util/version.PreRelease=rc1`
+	`-X github.com/decred/politeia/util/version.PreRelease=rc1 ` +
+	`-X main.BuildMetadata=release ` +
+	`-X main.PreRelease=rc1`
 
 const tags = "safe,netgo"
 
