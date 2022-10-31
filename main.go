@@ -170,6 +170,7 @@ func ghRelease(repo, relver, file string) string {
 }
 
 const tags = "safe,netgo"
+const windowsTags = "safe"
 
 func main() {
 	flag.Parse()
@@ -275,6 +276,10 @@ func build(tool, builddir, goos, arch, ldflags string) {
 	exe := exeName(tool, goos)
 	out := filepath.Join("..", "bin", goos+"-"+arch, exe)
 	log.Printf("build: %s", out[3:]) // trim off leading "../"
+	tags := tags
+	if goos == "windows" {
+		tags = windowsTags
+	}
 	gocmd(goos, arch, builddir, "build", "-trimpath", "-tags", tags, "-o", out, "-ldflags", ldflags, tool)
 }
 
